@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    text-align: center;
+    padding:0;
+    margin:0;
+    color: #fff;
+}
+h4{
+    color: #ff0f39;
+    padding:0;
+    margin:0;
+}
+h5{
+    padding:0;
+    margin:0;
+}
+.logo {
+    width: 250px; /* Adjust the width as per your logo size */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute;
+    left:50px;
+    margin-right: 1000px; /* Adjust spacing */
+}
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+form {
+    background-color: #fff;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.buttons button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+button {
+    min-width: 100px;
+    min-height: 30px;
+}
+
+nav {
+    background-color: #f2f2f2;
+    width: 20%;
+    float: left;
+    padding: 1em;
+    height: calc(100vh - 70px);
+    /* Adjust height based on your design */
+}
+
+main {
+    padding: 1em;
+    margin-left: 20%;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.buttons button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}

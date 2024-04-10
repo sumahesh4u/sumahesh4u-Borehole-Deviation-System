@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terminal Interface</title>
+    <style>
+      .terminal {
+        background-color: #333;
+        border-radius: 5px;
+        padding: 20px;
+      }
+
+      .input-container {
+        display: flex;
+      }
+
+      .input-container input[type="text"] {
+        flex: 1;
+        padding: 10px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 3px;
+        background-color: #444;
+        color: #fff;
+        font-family: monospace;
+      }
+
+      .input-container input[type="submit"] {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        background-color: #2962ff;
+        color: #fff;
+        cursor: pointer;
+        font-family: monospace;
+      }
+
+      .input-container input[value="Clear"] {
+        margin-left: 20px;
+      }
+
+      .output-panel {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #222;
+        border-radius: 3px;
+        height: 200px; /* Fixed height */
+        overflow-y: auto;
+      }
+
+      .output {
+        margin-bottom: 10px;
+        color: #fff; /* Set output text color to white */
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Debug Panel</h2>
+    <div class="terminal">
+      <div class="input-container">
+      </div>
+      <div class="output-panel" id="outputPanel"></div>
+    </div>
+  </body>
+</html>

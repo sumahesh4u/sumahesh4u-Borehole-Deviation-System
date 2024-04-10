@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.table {
+  width: 50%;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+h2 {
+  display: inline;
+  margin-right: 10px;
+  color: #333;
+
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+header h2 {
+  text-align: center;
+  color: #fff;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+
+form {
+  background-color: #fff;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sideNavBtns {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+.sideNavBtns {
+  min-width: 100px;
+  min-height: 30px;
+}
+
+nav {
+  background-color: #f2f2f2;
+  width: 20%;
+  float: left;
+  padding: 1em;
+  height: calc(100vh - 70px);
+  /* Adjust height based on your design */
+}
+
+.content{
+  display: inline-block;
+   margin-left: 50px;
+}
+
+.surveyButtons{
+  margin: 20px 0 20px 0;
+  display: flex;
+  justify-content:space-between;
+}
+
+.subHeading{
+  float: left;
+}
+
+.surveyButtons button{
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#startSurvey{
+  background-color: green;
+}
+
+#stopSurvey{
+  background-color: red;
+}
+
+input[type="number"]{
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  width: 100px;
+  padding: 10px;
+}
+
+
+.leftContent{
+  float: left;
+}
+
+
+
+

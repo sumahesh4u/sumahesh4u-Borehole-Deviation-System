@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MECL</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+        padding-top: 15%;
+    font-size: x-large;
+      }
+      h2 {
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        color: #fff;
+      }
+      h4 {
+        color: #ff0f39;
+        padding: 0;
+        margin: 0;
+      }
+      h5 {
+        padding: 0;
+        margin: 0;
+      }
+      .header {
+        background-color: beige;
+        color: white;
+        text-align: center;
+        padding: 1em;
+      }
+      .logo {
+        width: 250px; /* Adjust the width as per your logo size */
+        height: auto; /* Maintain aspect ratio */
+        position: absolute;
+        left: 50px;
+        margin-right: 1000px; /* Adjust spacing */
+      }
+      form {
+            background-color: #ffffff;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+      label {
+        display: block;
+        font-weight: bold;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px; /* Increase font size */
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      nav {
+        background-color: #ffffff;
+        width: 20%;
+        float: left;
+        padding: 1em;
+        height: calc(100vh - 70px); /* Adjust height based on your design */
+      }
+
+      main {
+        padding: 1em;
+        margin-left: 20%;
+      }
+      .buttons {
+        width: 18%;
+        /* align: center; */
+        color: #fff;
+        padding-bottom: 10px;
+
+        display: flex;
+        flex-direction: column;
+        margin-top: 0;
+        margin-bottom: 0;
+        justify-content: center;
+        align-items: center;
+        left: 50%;
+      }
+      .container {
+        height: 200px;
+        position: relative;
+        border: 3px solid green;
+      }
+
+      .vertical-center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+
+      .buttons button {
+        display: flex;
+
+        margin: 10;
+        padding: 10;
+        border: 10;
+      }
+
+      /* .dropdown-style {
+        margin-left: 200px;
+      } */
+      
+      p{
+    color: #00535F;
+    font-family: 'roboto'
+    }
+
+    td {
+    display: table-cell;
+    vertical-align: inherit;
+    }
+
+    </style>
+  </head>
+  <body>
+    
+    <div class="header" style="display: flex; gap: 15px; justify-content: center;">
+      <div style="flex:1;">
+        <img src="/static/Assets/images/MECL_Logo.png" height="80px" onclick="goToLandingPage()">
+      </div>
+      <div style="flex:4">   
+        <div style="flex:4">   
+          <td>
+            <!-- <p style="padding: 0px; margin: 0px; font-size:20px" ><b>मिनरल एक्सप्लोरेशन एंड कंसल्टेंसी लिमिटेड</b></p>
+            <p style="padding: 0px; margin: 0px; font-size:12px">(पूर्व में मिनरल एक्सप्लोरेशन कार्पोरेशन लिमिटेड)</p>
+            <p style="padding: 0px; margin: 0px; font-size:13px; color:black">खान मंत्रालय, भारत सरकार का उद्यम, मिनीरत्ना-I सीपीएसई</p> -->
+            <h1 style="padding: 0px; margin: 0px; font-size:28px"><b>MINERAL EXPLORATION AND CONSULTANCY LTD.</b></h1>
+            <h2 style="padding: 0px; margin: 0px; font-size:20px;color: #8a4141;">(A Government of India Enterprise)</h2>
+            <!-- <p style="padding: 0px; margin: 0px; font-size:13px; color:black">Ministry of Mines, Govt of India Enterprise, MINIRATNA-I CPSE</p> -->
+            <!-- <p style="padding: 0px; margin: 0px; font-size:13px; color:black">An ISO 9001:2015, 14001:2015 &amp; 45001:2018 Certified Company</p> -->
+          </td>
+        </div>
+      </div>
+      <div style="flex:1;">
+      </div>   
+    </div>
+
+    <nav>
+      <h1>Menu</h1>
+      <div class="button-container">
+        <form method="post" action="/button_clicked">
+          <button type="submit" name="button_id" value="1">Survey</button>
+          <br />
+          <button type="submit" name="button_id" value="2">Data</button>
+          <br />
+          <button type="submit" name="button_id" value="3">User Manual</button>
+        
+        </form>
+        <!-- <iframe src="{{ url_for('static', filename='IframeFiles/debugPanel.html') }}" width="100%" height="400px" frameborder="0"></iframe> -->
+      </div>
+      
+    </nav>
+    <div id="serial-data"></div>
+    <main>
+      <h1>Select the COM Port</h1>
+      <div style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+        <div class="buttons">
+          <!-- <label class="label-class" for="com_port">COM Port:</label> -->
+          <select id="com_port" class="dropdown-style">
+            <option value="" disabled selected>Select the COM Port</option>
+          </select>
+          <br />
+        </div> 
+          <button class="buttons" onclick="goToPage()">Connect</button>
+        </div>
+        <br />
+    </main>
+
+    <!-- js code here -->
+    <script>
+      // Function to fetch available COM ports
+      async function fetchComPorts() {
+        const response = await fetch("/get_com_ports"); //using the api methods //getting port numbers
+        const data = await response.json();
+        return data;
+      }
+      function goToLandingPage() {
+        window.location.href = "/";
+      }
+      // Function to update the dropdown menu with available COM ports
+      async function updateDropdown() {
+        const comPorts = await fetchComPorts();
+        const dropdown = document.getElementById("com_port");
+
+        ports_descriptions = comPorts.com_port_desc;
+        port_numbers = comPorts.com_port_number;
+
+        // Clear existing options
+        dropdown.innerHTML =
+          '<option value="" disabled selected>Select a COM Port</option>';
+
+        // Add new options
+        for (i = 0; i < port_numbers.length; i++) {
+          const option = document.createElement("option");
+          option.value = port_numbers[i];
+          option.text = ports_descriptions[i];
+          dropdown.add(option);
+        }
+      }
+
+      //connect to bds hardware
+      function goToPage() {
+        const selectedPortName = document.getElementById("com_port").value; //fetching the com port selected
+
+        if (selectedPortName) {
+          //check if valid port number is selected
+
+          // Create an object with the selected port name
+          const requestData = { body: selectedPortName };
+
+          //sending the selected port number to the flask
+          fetch("/startSerialCom", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json", // Specify the content type as JSON
+            },
+            body: JSON.stringify(requestData), // Convert the object to JSON string
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log(data);
+
+              if (window.confirm(data.status)) {
+                window.open("page2", "_self");
+              }
+            })
+            .catch((error) => console.error("Error:", error));
+        } else {
+          alert("Please select a COM Port.");
+        }
+      }
+      //show all the ports in the dropdown now
+      updateDropdown();
+    </script>
+    
+  </body>
+</html>

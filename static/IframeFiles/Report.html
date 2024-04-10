@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDS project</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            padding:0;
+            margin:0;
+            color: #fff;
+        }
+        h2 {
+            text-align: center;
+            padding:0;
+            margin:0;
+            color: #fff;
+        }
+        h3 {
+            color: #ff0f39;
+            padding:0;
+            margin:0;
+        }
+        h4 {
+            padding:0;
+            margin:0;
+        }
+        .logo {
+ /* Adjust the width as per your logo size */
+            height: auto; /* Maintain aspect ratio */
+            position: absolute;
+            left: 50px;
+            margin-right: 1000px; /* Adjust spacing */
+        }
+        form {
+            background-color: #fff;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            display: block;
+            /* width: 100%; */
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px; /* Adjust spacing between buttons */
+        }
+        
+        .header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            min-width: 100vw;
+        }
+        .buttons {
+            display: block;
+            flex-direction: row;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        nav {
+            background-color: #f2f2f2;
+            width: 20%;
+            float: left;
+            padding: 1em;
+            height: calc(100vh - 70px); /* Adjust height based on your design */
+        }
+        main {
+            padding: 1em;
+            margin-left: 20%;
+        }
+        .MainWindow {
+            width: auto;
+            height: 600px;
+            margin: 0 auto;
+        }
+        .centralwidget {
+            position: relative;
+        }   
+
+        .read{
+            min-width: 120px;            
+        }
+        .generate{
+            min-width: 120px;
+
+        }
+        .clear{
+            min-width: 120px;
+
+        }
+        .report{
+            min-width: 120px;
+
+        }
+
+
+
+        .buttons {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 16px;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        }   
+
+        .buttons h2 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        }
+
+        .buttons label {
+        display: block;
+        margin-bottom: 4px;
+        }
+
+        .buttons select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+        }
+
+        .buttons button {
+        display: block;
+        width: 100%;
+        padding: 8px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @media only screen and (max-width: 480px) {
+        .buttons {
+            padding: 8px;
+        }
+
+        .buttons h2 {
+            font-size: 16px;
+        }
+        }
+
+        /* Menu Section */
+
+        .button-container {
+        background-color: #f2f2f2; /* Light gray background */
+        border: 1px solid #ddd; /* Gray border */
+        border-radius: 4px; /* Rounded corners */
+        margin: 0 auto; /* Center the menu horizontally */
+        padding: 8px; /* Add some padding */
+        width: 200px; /* Set a fixed width */
+        display: flex; /* Arrange buttons horizontally */
+        justify-content: space-between; /* Space buttons evenly */
+        }
+
+        .button-container button {
+        background-color: #007bff; /* Green background */
+        color: white; /* White text */
+        border: none; /* No border */
+        border-radius: 4px; /* Rounded corners */
+        padding: 8px 16px; /* Add some padding */
+        cursor: pointer; /* Pointer cursor on hover */
+        font-size: 16px; /* Text size */
+        }
+
+        .button-container button:hover {
+        background-color: #007bff; /* Darker green on hover */
+        }
+
+        @media only screen and (max-width: 480px) {
+        /* For screens up to 480px wide */
+        .button-container {
+            width: 100%; /* Make the menu full width */
+        }
+        }
+
+        .logo {
+        /* width: 200px; */
+        height: auto;
+        margin-bottom: 20px;
+        /* border:1px solid red; */
+        }
+    </style>
+</head>
+<body>
+    <div class="header" style="display: flex; gap: 15px; justify-content: center;">
+        <div style="flex:1;">
+            <img src ="/static/Assets/images/MECL_Logo.png" height="100px">
+        </div>
+        <div style="flex:4">   
+            <h1 style="color: #fff;">MINERAL EXPLORATION & CONSULTANCY LIMITED</h1>
+            <h3 style="margin-top: 10px;">(Formerly Mineral Exploration Corporation Limited)</h3>
+            <h4 style="margin-top: 20px;">Dr.Babasaheb Ambedkar Bhavan,Seminary Hills,Nagpur-440006 (Maharashtra)</h4>
+        </div>
+        <div style="flex:1;">
+        </div>   
+    </div>
+
+    
+    <nav>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+
+            <div style="display: block; flex-grow: 1;" >
+                <h1 style="text-align: center; color: #333;">Menu</h1>
+                <form method="post" action="/button_clicked" style="display: flex; flex-direction: column; ">
+                    <button class="sideNavBtns" type="submit" name="button_id" value="2" style="min-width: 100px;">Data</button>
+                    <button class="sideNavBtns" type="submit" name="button_id" value="3">Setting</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div style="display: block; flex-grow: 1; padding: 20px 0; margin:auto;" >
+        <div style="display: flex; justify-content: center; flex-direction: row; flex-wrap: wrap; gap: 20px;">   
+            <button id="read">Read</button>
+            <button id="clear">ClearSD</button>
+            <button id="generate" onclick="openPopup()">Generate_Report</button>
+            <!-- <button id="report"onclick="showPopup()">Report</button> -->
+            <iframe src="{{ url_for('static', filename='IframeFiles/terminal.html') }}" width="100%" height="600px" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>  
+
+    <script src="{{url_for('static',filename='Assets/JS_Libraries/socket.io.min.js')}}"></script>
+    <script src="{{url_for('static',filename='JS/Fetch_Data.js')}}"></script>
+    <script>
+        function openPopup() {
+            var modalContent = `
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal()">&times;</span>
+                        <h1>Data Extractor</h1>
+                        
+                        <div class="file-container">
+                            <label for="files">Choose Excel Files:</label>
+                            <input type="file" id="files" accept=".xls, .xlsx" multiple>
+                        </div>
+                       
+                        <br>
+                        <button onclick="generate()">Generate</button>
+                    </div>
+                </div>
+            `;
+    
+            document.body.insertAdjacentHTML('beforeend', modalContent);
+    
+            var modal = document.getElementById("myModal");
+    
+            modal.style.display = "block";
+        }
+    
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        function generate() {
+            var files = document.getElementById('files').files;
+
+            if (files.length === 4) {
+                var formData = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    formData.append('file', files[i]);
+                }
+
+                fetch('/run_python_code', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error); // Display error message
+                    } else {
+                        alert(data.message); // Display success message
+
+                        // Clear file input field after processing
+                        document.getElementById('files').value = '';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please check the console for details.');
+                });
+            } else {
+                alert('Please select exactly four Excel files.');
+            }
+        }
+  
+    </script>
+    
+</body>
+</html>

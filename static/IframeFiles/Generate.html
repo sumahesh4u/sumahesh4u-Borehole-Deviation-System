@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Uploader</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label, input, button {
+            margin: 10px;
+        }
+
+        /* Adjustments for file input elements */
+        .file-container {
+            display: flex;
+            align-items: center;
+        }
+
+        #files {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Extractor</h1>
+    
+    <div class="file-container">
+        <label for="files">Choose Excel Files:</label>
+        <input type="file" id="files" accept=".xls, .xlsx" multiple>
+    </div>
+   
+    <br>
+    <button onclick="generate()">Generate</button>
+
+    <script>
+        function generate() {
+            var files = document.getElementById('files').files;
+
+            if (files.length === 4) {
+                var formData = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    formData.append('file', files[i]);
+                }
+
+                fetch('/run_python_code', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error); // Display error message
+                    } else {
+                        alert(data.message); // Display success message
+
+                        // Clear file input field after processing
+                        document.getElementById('files').value = '';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please check the console for details.');
+                });
+            } else {
+                alert('Please select exactly four Excel files.');
+            }
+        }
+    </script>
+</body>
+</html>

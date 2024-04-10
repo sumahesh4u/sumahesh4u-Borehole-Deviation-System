@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MECL</title>
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+        text-align: center;
+        color: #333;
+        /* padding-top: 15%; */
+    font-size: x-large;
+      }
+        h2 {
+            text-align: center;
+            padding:0;
+            margin:0;
+            color: #fff;
+        }
+        h4{
+            color: #ff0f39;
+            padding:0;
+            margin:0;
+        }
+        h5{
+            padding:0;
+            margin:0;
+        }
+        .header {
+            background-color: beige;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        form {
+            background-color: #ffffff;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+        }
+       form[value="1"] {
+    background-color: #ffffff;
+    max-width: 700px; /* Adjusted width for 6x6 grid */
+    margin: auto;
+    padding: 20px; /* Increased padding for better spacing */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adjusted box shadow for smoother appearance */
+    display: grid;
+    grid-template-columns: repeat(4,150px);
+    grid-gap: 10px; /* Increased gap between grid items */
+}
+label {
+      display: block;
+      font-weight: bold;
+    }
+
+    input[type="text"],input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+  }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    input[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #0056b3; /* Change the background color on hover */
+    }
+
+    
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .logo {
+            width: 250px; /* Adjust the width as per your logo size */
+            height: auto; /* Maintain aspect ratio */
+            position: absolute;
+            left:50px;
+            margin-right: 1000px; /* Adjust spacing */
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px; /* Increase font size */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+
+
+            .buttons {
+              display: flex;
+              flex-direction: row;
+              margin-top: 0;
+              margin-bottom: 0;
+            }
+
+            .buttons button {
+              margin: 0;
+              padding: 0;
+              border: 0;
+            }
+            button {
+              min-width: 100px;
+              min-height: 30px;
+            }
+
+        nav {
+            background-color: #ffffff;
+            width: 20%;
+            float: left;
+            padding: 1em;
+            height: calc(100vh - 70px); /* Adjust height based on your design */
+        }
+
+        main {
+            padding: 1em;
+            margin-left: 20%;
+        }
+        .buttons {
+          display: flex;
+          flex-direction: column;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+
+        .buttons button {
+          margin: 0;
+          padding: 0;
+          border: 0;
+        }
+
+        p{
+        color: #00535F;
+        font-family: 'roboto'
+        }
+        td {
+        display: table-cell;
+        vertical-align: inherit;
+        }
+         
+      
+    </style>
+    </head>
+<body>
+
+  <div class="header" style="display: flex; gap: 15px; justify-content: center;">
+    <div style="flex:1;">
+      <img src="/static/Assets/images/MECL_Logo.png" height="80px" onclick="goToLandingPage()">
+    </div>
+    <div style="flex:4">   
+      <div style="flex:4">   
+        <td>
+          <!-- <p style="padding: 0px; margin: 0px; font-size:20px" ><b>मिनरल एक्सप्लोरेशन एंड कंसल्टेंसी लिमिटेड</b></p>
+          <p style="padding: 0px; margin: 0px; font-size:12px">(पूर्व में मिनरल एक्सप्लोरेशन कार्पोरेशन लिमिटेड)</p>
+          <p style="padding: 0px; margin: 0px; font-size:13px; color:black">खान मंत्रालय, भारत सरकार का उद्यम, मिनीरत्ना-I सीपीएसई</p> -->
+          <h1 style="padding: 0px; margin: 0px; font-size:28px"><b>MINERAL EXPLORATION AND CONSULTANCY LTD.</b></h1>
+          <h2 style="padding: 0px; margin: 0px; font-size:20px;color: #8a4141;">(A Government of India Enterprise)</h2>
+          <!-- <p style="padding: 0px; margin: 0px; font-size:13px; color:black">Ministry of Mines, Govt of India Enterprise, MINIRATNA-I CPSE</p> -->
+          <!-- <p style="padding: 0px; margin: 0px; font-size:13px; color:black">An ISO 9001:2015, 14001:2015 &amp; 45001:2018 Certified Company</p> -->
+        </td>
+      </div>
+    </div>
+    <div style="flex:1;">
+    </div>   
+  </div>
+  
+    <nav>
+        <h1>Menu</h1>
+        <div class="button-container">
+            <form method="post" action="/button_clicked">
+                <button type="submit" name="button_id" value="1">Survey</button>
+                <br>
+                <button type="submit" name="button_id" value="2">Data</button>
+                <br>
+                <button type="submit" name="button_id" value="3">User Manual</button>
+             
+            </form>
+        </div>
+
+    </nav>
+
+    <main>
+<h1>Survey Information Form</h1>
+
+  <form value ="1" action="/submit_survey" method="post">
+    <!-- Survey Name -->
+    <label for="surveyName">Block Name:</label>
+    <input type="text" id="surveyName" name="surveyName">
+
+    <!-- Hole ID -->
+    <label for="holeId">Borehole ID:</label>
+    <input type="text" id="holeId" name="holeId" required>
+
+    <!-- Start Depth -->
+    <label for="startDepth">Start Depth:</label>
+    <input type="number" id="startDepth" name="startDepth" required>
+
+    <label for="Borehole Depth">Borehole Depth:</label>
+    <input type="text" id="Borehole Depth" name="Borehole Depth">
+
+     <!-- Initial inclination -->
+    <label for="Initial inclination">Initial Inclination:</label>
+    <input type="text" id="Initial inclination" name="Initial inclination">
+     <!-- Initial Azimuth -->
+    <label for="Initial Azimuth">Initial Azimuth:</label>
+    <input type="text" id="Initial Azimuth" name="Initial Azimuth">
+     <!-- Mineral Prospect -->
+    <label for="Mineral Prospect">Mineral Prospect:</label>
+    <input type="text" id="Mineral Prospect" name="Mineral Prospect">
+     <!-- Northing -->
+    <label for="Northing">Northing:</label>
+    <input type="text" id="Northing" name="Northing">
+     <!-- Easting -->
+    <label for="Easting">Easting:</label>
+    <input type="text" id="Easting" name="Easting">
+     <!-- Elevation -->
+     <label for="Elevation">Elevation:</label>
+    <input type="text" id="Elevation" name="Elevation">
+
+    <!-- Start Interval -->
+    <label for="startInterval">Start Interval:</label>
+    <input type="number" id="startInterval" name="startInterval" required>
+
+    <!-- Radio Buttons for In/Out -->
+    <label>Direction:</label>
+    <div class="radio-group">
+      <input type="radio" id="in" name="direction" value="in" required>
+      <label for="in">In</label>
+
+      <input type="radio" id="out" name="direction" value="out" required>
+      <label for="out">Out</label>
+    </div>
+
+    <!-- Submit Button -->
+    <input type="submit" value="Start Survey">
+  </form>
+    </main>
+  <script>
+    function goToLandingPage() {
+        window.location.href = "/";
+      }
+  </script>
+</body>
+</html>

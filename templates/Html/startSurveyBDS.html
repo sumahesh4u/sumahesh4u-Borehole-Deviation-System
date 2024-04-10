@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Start Survey</title>
+    <link rel="stylesheet" href="/static/CSS/style.css">
+    
+    <style>
+      /* Resetting default margin and padding */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Body styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Header styles */
+      .header {
+        background-color: beige;
+        color: white;
+        text-align: center;
+        padding: 1em;
+      }
+
+      h2 {
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        color: #fff;
+      }
+      h4 {
+        color: #ff0f39;
+        padding: 0;
+        margin: 0;
+      }
+      h5 {
+        padding: 0;
+        margin: 0;
+      }
+
+      /* Navigation styles */
+      nav {
+        background-color: #ffffff;
+        width: 20%;
+        float: left;
+        padding: 1em;
+        height: calc(100vh - 70px); /* Adjust height based on your design */
+      }
+      .logo {
+        width: 250px; /* Adjust the width as per your logo size */
+        height: auto; /* Maintain aspect ratio */
+        position: absolute;
+        left: 50px;
+        margin-right: 1000px; /* Adjust spacing */
+      }
+      .button-container {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Form styles */
+      form {
+            background-color: #ffffff;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+        }
+      
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 10px; /* Adjust spacing between buttons */
+        font-size: 16px; /* Increase font size */
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+      button:disabled{
+        background-color:#1664b8;
+      }
+     /* Main content styles */
+      main {
+        padding: 1em;
+        margin-left: 20%;
+      }
+
+      /* Central widget styles */
+      .MainWindow {
+        height: 600px;
+        margin: 0 auto;
+      }
+
+      .centralwidget {
+        position: relative;
+      }
+
+      /* Specific element styles */
+      #batteryLevelRequest {
+        /* position: absolute; */
+        margin-top: 10px;
+        margin-left: 10px;
+        max-width: 150px;
+      }
+
+      #batteryPercentage {
+        /* position: absolute; */
+        top: 48%;
+        left: 26%;
+
+      }
+
+
+      .plainTextEdit {
+        width: 80px;
+        height: 40px;
+      }
+
+      .delayProgressBar {
+  margin: 10px 0 5px 0;
+  width: 250px;
+  height: 20px; /* Adjust height */
+  background-color: #ccc; /* Background color of the progress bar container */
+  border: 1px solid #666; /* Border color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.delayProgressBar::-webkit-progress-bar {
+  background-color: #ccc; /* Background color of the progress bar container */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.delayProgressBar::-webkit-progress-value {
+  background-color: #007bff; /* Progress bar color */
+  border-radius: 10px; /* Rounded corners */
+}
+
+
+      #markStationID {
+        width: 120px;
+        margin:10px 0;
+        margin-top: 0px;
+      }
+
+
+      #tableContainer {
+        position: relative;
+        border: 1px solid #ccc;
+        padding: 10px;
+        width: 400px;
+        height: 300px;
+        overflow-y: auto;
+        /* Add the following lines to move the container left and right */
+        margin-left: 0px; /* Adjust as needed */
+        margin-right: 110px; /* Adjust as needed */
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      .circle {
+        width: 20px;
+        height: 20px;
+        border-color: black;
+        border-radius: 20px;
+        border-width: 2px;
+        border-style: solid;
+        display: inline-block;
+        margin: 0 2px 0 2px;
+      }
+
+      #CalibrateContainer {
+        margin-top: 5px;
+        margin-left: 10px;
+      }
+
+      #calibrateButton {
+        width: 100px;
+        /* height: 35px; */
+        float: left;
+      }
+
+    
+      #Stopcalibrate {
+        width: 100px;
+        /* height: 35px; */
+        float: left;
+      }
+      
+      p{
+        color: #00535F;
+        font-family: 'roboto'
+        }
+        td {
+        display: table-cell;
+        vertical-align: inherit;
+        }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="header" style="display: flex; gap: 15px; justify-content: center;">
+      <div style="flex:1;">
+        <img src="/static/Assets/images/MECL_Logo.png" height="80px" onclick="goToLandingPage()">
+      </div>
+      <div style="flex:4">   
+        <div style="flex:4">   
+          <td>
+            <!-- <p style="padding: 0px; margin: 0px; font-size:20px" ><b>मिनरल एक्सप्लोरेशन एंड कंसल्टेंसी लिमिटेड</b></p>
+            <p style="padding: 0px; margin: 0px; font-size:12px">(पूर्व में मिनरल एक्सप्लोरेशन कार्पोरेशन लिमिटेड)</p>
+            <p style="padding: 0px; margin: 0px; font-size:13px; color:black">खान मंत्रालय, भारत सरकार का उद्यम, मिनीरत्ना-I सीपीएसई</p> -->
+            <h1 style="padding: 0px; margin: 0px; font-size:28px"><b>MINERAL EXPLORATION AND CONSULTANCY LTD.</b></h1>
+            <h2 style="padding: 0px; margin: 0px; font-size:20px;color: #8a4141;">(A Government of India Enterprise)</h2>
+            <!-- <p style="padding: 0px; margin: 0px; font-size:13px; color:black">Ministry of Mines, Govt of India Enterprise, MINIRATNA-I CPSE</p> -->
+            <!-- <p style="padding: 0px; margin: 0px; font-size:13px; color:black">An ISO 9001:2015, 14001:2015 &amp; 45001:2018 Certified Company</p> -->
+          </td>
+        </div>
+      </div>
+      <div style="flex:1;">
+      </div>   
+    </div>
+
+  <nav>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center;">
+            <div style="display: block; flex-grow: 1;" >
+                <h1 style="text-align: center; color: #333;">Menu</h1>
+                <form method="post" action="/button_clicked" style="display: flex; flex-direction: column; ">
+                    <button id="dataBtn" class="sideNavBtns" type="submit" name="button_id" value="2" style="min-width: 100px;">Data</button>
+                    <button id="manualBtn" class="sideNavBtns" type="submit" name="button_id" value="3">User Manual</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="MainWindow" style="margin-left: 20%; display: flex; justify-content: space-between; ">
+
+
+        <div class=" left-part centralwidget" style=" flex-grow: 1; ">
+
+            <div id="CalibrateContainer" style="padding: 25px 0;">
+                <button id="calibrateButton" style="margin-right: 20px;" disabled>Calibrate</button>
+                <button id="Stopcalibrate" style="margin-right: 20px;" disabled>Stop Cal </button>
+                <div class="circle"  id="stage1"></div>
+                <div class="circle" id="stage2"></div>
+                <div class="circle" id="stage3"></div>
+                <div class="circle" id="stage4"></div>
+            </div>
+
+            <button id="batteryLevelRequest" disabled>Battery Indicator</button>
+            <div id="batteryPercentage" style="margin:10px;"></div>
+
+            <div style="margin: 0px 0;margin-top: 20px;margin-left: 20px;">
+                <label>Direction : </label>
+                <label id="direction">{{direction}}</label>      
+            </div>
+               
+            <div style="margin: 0px 0;margin-left: 20px;margin-top: 20px;">
+                <label id = "interval" >Interval :</label>
+                <label id="start_interval">{{start_interval}}</label>
+            </div>  
+
+
+            <div style= "margin-top: 10%; margin-left: 20px;">
+              <button id="startButton" disabled style="max-width: 120px; margin-right: 20px; display: inline;">Start</button>
+              <button id="endButton" disabled style="max-width: 120px; display: inline;">End</button>
+          </div> 
+
+        </div>
+
+            
+
+        <div class="right-part" style="padding-right: 10%; padding-top: 20px;">
+
+            <div id="tableContainer" style="position: relative;">
+                <table id="the_table">
+                <tr>
+                <th>TimeStamp</th>
+                <th>MarkStation</th>
+                </tr>
+                <!-- Add more rows as needed -->
+                </table>
+            </div>
+
+
+            <div style="position: relative; padding: 0px 0;  ">
+                <div style="padding: 10px 0 ; margin: auto; ">
+                    <div class="moveToStation" style="position: relative; display: inline; margin-right: 10px;">Mark to Station</div>
+                    <div style="max-width: 100px; display: inline-block;">
+                        <input type="number" id="start_depth" value="{{start_depth}}" class="plainTextEdit" readandwriteonly />
+                    </div>
+                    <progress id="markStationProgress" class="delayProgressBar" value="0" max="100" style="display: block;"></progress>
+                </div>
+
+                    <label id="timerLabel">Timer: 0</label>
+                    <button id="markStationID" disabled>Mark Station</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+    
+   
+    
+    <script src="{{url_for('static',filename='Assets/JS_Libraries/socket.io.min.js')}}"></script>
+    <script src="{{url_for('static',filename='JS/submit_survey.js')}}"></script>
+    <script>
+      function goToLandingPage() {
+        window.location.href = "/";
+      } 
+    </script>
+  </body>
+</html>

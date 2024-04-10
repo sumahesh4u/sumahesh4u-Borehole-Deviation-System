@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MECL - Group Information Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+        text-align: center;
+        color: #333;
+        /* padding-top: 15%; */
+    font-size: x-large;
+      }
+        h2 {
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            color: #fff;
+        }
+
+        h4 {
+            color: #ff0f39;
+            padding: 0;
+            margin: 0;
+        }
+
+        h5 {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        form {
+            background-color: #ffffff;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .logo {
+            width: 250px;
+            /* Adjust the width as per your logo size */
+            height: auto;
+            /* Maintain aspect ratio */
+            position: absolute;
+            left: 50px;
+            margin-right: 1000px;
+            /* Adjust spacing */
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px; /* Increase font size */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+
+        .header {
+            background-color: beige;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .buttons button {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        button {
+            min-width: 100px;
+            min-height: 30px;
+        }
+
+        nav {
+            background-color: #ffffff;
+            width: 20%;
+            float: left;
+            padding: 1em;
+            height: calc(100vh - 70px);
+            /* Adjust height based on your design */
+        }
+
+        main {
+            padding: 1em;
+            margin-left: 20%;
+        }
+
+         
+        p{
+        color: #00535F;
+        font-family: 'roboto'
+        }
+        td {
+        display: table-cell;
+        vertical-align: inherit;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="header" style="display: flex; gap: 15px; justify-content: center;">
+        <div style="flex:1;">
+          <img src="/static/Assets/images/MECL_Logo.png" height="80px" onclick="goToLandingPage()">
+        </div>
+        <div style="flex:4">   
+          <div style="flex:4">   
+            <td>
+              <!-- <p style="padding: 0px; margin: 0px; font-size:20px" ><b>मिनरल एक्सप्लोरेशन एंड कंसल्टेंसी लिमिटेड</b></p>
+              <p style="padding: 0px; margin: 0px; font-size:12px">(पूर्व में मिनरल एक्सप्लोरेशन कार्पोरेशन लिमिटेड)</p>
+              <p style="padding: 0px; margin: 0px; font-size:13px; color:black">खान मंत्रालय, भारत सरकार का उद्यम, मिनीरत्ना-I सीपीएसई</p> -->
+              <h1 style="padding: 0px; margin: 0px; font-size:28px"><b>MINERAL EXPLORATION AND CONSULTANCY LTD.</b></h1>
+              <h2 style="padding: 0px; margin: 0px; font-size:20px;color: #8a4141;">(A Government of India Enterprise)</h2>
+              <!-- <p style="padding: 0px; margin: 0px; font-size:13px; color:black">Ministry of Mines, Govt of India Enterprise, MINIRATNA-I CPSE</p> -->
+              <!-- <p style="padding: 0px; margin: 0px; font-size:13px; color:black">An ISO 9001:2015, 14001:2015 &amp; 45001:2018 Certified Company</p> -->
+            </td>
+          </div>
+        </div>
+        <div style="flex:1;">
+        </div>   
+      </div>
+    <nav>
+        <style>
+            .buttons {
+                display: flex;
+                flex-direction: column;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            .buttons button {
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+        </style>
+        <h1>Menu</h1>
+        <div class="button-container">
+            <form method="post" action="/button_clicked">
+                <button type="submit" name="button_id" value="1">Survey</button>
+                <br>
+                <button type="submit" name="button_id" value="2">Data</button>
+                <br>
+                <button type="submit" name="button_id" value="3">User Manual</button>
+                
+            </form>
+        </div>
+
+    </nav>
+
+    <main>
+        <h1>Group Information Form</h1>
+        <form id="surveyForm">
+            <div>
+                <label style="display: block;font-weight: bold;" for="group_name">Surveyor Name:</label>
+                <input type="text" id="group_name" name="group_name" required>
+            </div>
+
+            <div>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location">
+            </div>
+
+            <div>
+                <label for="survey_company">Survey Company:</label>
+                <input type="text" id="survey_company" name="survey_company">
+            </div>
+
+            <div>
+                <label for="client">Client:</label>
+                <input type="text" id="client" name="client">
+            </div>
+
+            <div>
+                <label for="client_id">Client ID:</label>
+                <input type="text" id="client_id" name="client_id">
+            </div>
+            <div>
+                <label for="client_reference">Client Reference:</label>
+                <input type="text" id="client_reference" name="client_reference">
+            </div>
+            <br>
+            <button
+                style="display: block;width: 100%;padding: 10px;background-color: #007bff;color: #fff;border: none;border-radius: 5px;cursor: pointer;"
+                type="button" onclick="sendGroupData()">Next</button>
+        </form>
+    </main>
+    <script>
+        function goToLandingPage() {
+        window.location.href = "/";
+      }
+        function sendGroupData() {
+            // Get the group name input value
+            var groupName = document.getElementById("group_name").value;
+            var locationName = document.getElementById("location").value;
+            var survey_companyName = document.getElementById("survey_company").value;
+            var clientName = document.getElementById("client").value;
+            var client_idName = document.getElementById("client_id").value;
+            var client_referenceName = document.getElementById("client_reference").value;
+
+            // Validate if all required fields are filled
+            if (groupName === "") {
+                alert("Please fill in Surveyor Name.");
+                return; // Stop further processing if any required field is empty
+            }
+            //     // Send the group name to the Flask server
+            //     fetch('/group_data', {
+            //         method: 'POST',
+            //         headers: {
+            //             'Content-Type': 'application/json'
+            //         },
+            //         body: JSON.stringify({ 'group_name': groupName, 'location': locationName, 'survey_company': survey_companyName, 'client': clientName, 'client_id': client_idName,'client_reference':client_referenceName })
+            //     }).then((response) => {if (response.text == "ok"){
+            //         window.location.href = '/page3'
+            //     }})
+            //         .catch(error => {
+            //             console.error('Error:', error);
+            //         });
+            // }
+
+            // Send the group name to the Flask server
+            fetch('/group_data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    'group_name': groupName,
+                    'location': locationName,
+                    'survey_company': survey_companyName,
+                    'client': clientName,
+                    'client_id': client_idName,
+                    'client_reference': client_referenceName
+                })
+            }).then(response => {
+                // Check if the response status is OK (200)
+                if (response.ok) {
+                    // Read and return the response text
+                    return response.text();
+                }
+            })
+                .then(responseText => {
+                    // Check if the response text is "ok"
+                    if (responseText === "ok") {
+                        // Redirect to page3
+                        window.location.href = '/page3';
+                    } else {
+                        console.error('Unexpected response from server:', responseText);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+    </script>
+    <script>
+        // Function to display popup with received messages
+        function showPopup(messages) {
+            alert("Received Messages:\n" + messages);
+        }
+
+        // Check if the connection was successful
+        var connection_status = "{{ connection_status }}";
+
+        // If the connection was successful, display popup with received messages
+        if (connection_status === "Connected") {
+            // Assuming you have a function to fetch received messages from server
+            fetch('/get_received_messages')
+            .then(response => response.json())
+            .then(data => {
+                showPopup(data.messages);
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+
+</html>

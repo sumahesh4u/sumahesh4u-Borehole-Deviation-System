@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terminal Interface</title>
+    <style>
+      .terminal {
+        background-color: #333;
+        border-radius: 5px;
+        padding: 20px;
+      }
+
+      .input-container {
+        display: flex;
+      }
+
+      .input-container input[type="text"] {
+        flex: 1;
+        padding: 10px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 3px;
+        background-color: #444;
+        color: #fff;
+        font-family: monospace;
+      }
+
+      .input-container input[type="submit"] {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        background-color: #2962ff;
+        color: #fff;
+        cursor: pointer;
+        font-family: monospace;
+      }
+
+      .input-container input[value="Clear"] {
+        margin-left: 20px;
+      }
+
+      .output-panel {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #222;
+        border-radius: 3px;
+        height: 300px; /* Fixed height */
+        overflow-y: auto;
+      }
+
+      .output {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin-bottom: 10px;
+        color: #fff; /* Set output text color to white */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Terminal</h1>
+    <div class="terminal">
+      <div class="input-container">
+        <input
+          type="text"
+          id="commandInput"
+          placeholder="Enter command..."
+          onkeydown="handleKeyDown(event)"
+        />
+        <input type="submit" value="Run" onclick="runCommand()" />
+        <input type="submit" value="Clear" onclick="clearCommand()" />
+      </div>
+      <div class="output-panel" id="outputPanel">
+        <div
+          style="
+            color: darkslategray;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          "
+        >
+          BDS [Version 19.0.19045.4046]
+          <br />
+          (c) MECL CONSULTANCY. All rights reserved.
+          <br/><br/>
+          <span style="color: red;">Wait for 10 seconds for the response to show up.</span>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Command history array
+      var commandHistory = [];
+      var currentCommandIndex = -1;
+
+      // Function to handle keydown event on the input field
+      document
+        .getElementById("commandInput")
+        .addEventListener("keydown", function (event) {
+          if (event.keyCode === 38) {
+            // Up arrow pressed
+            event.preventDefault();
+            loadPreviousCommand();
+          } else if (event.keyCode === 40) {
+            // Down arrow pressed
+            event.preventDefault();
+            loadNextCommand();
+          }
+        });
+
+      // Function to load the previous command from history
+      function loadPreviousCommand() {
+        if (currentCommandIndex < commandHistory.length - 1) {
+          currentCommandIndex++;
+          document.getElementById("commandInput").value =
+            commandHistory[currentCommandIndex];
+        }
+      }
+
+      // Function to load the next command from history
+      function loadNextCommand() {
+        if (currentCommandIndex > 0) {
+          currentCommandIndex--;
+          document.getElementById("commandInput").value =
+            commandHistory[currentCommandIndex];
+        } else if (currentCommandIndex === 0) {
+          currentCommandIndex = -1;
+          document.getElementById("commandInput").value = "";
+        }
+      }
+
+      //to submit the command when 'enter' key is pressed
+      function handleKeyDown(event) {
+        if (event.key === "Enter") {
+          event.preventDefault(); // Prevent default behavior of Enter key (form submission)
+          runCommand();
+        }
+      }
+
+      function runCommand() {
+        var inputField = document.getElementById("commandInput");
+        var outputPanel = document.getElementById("outputPanel");
+        var command = inputField.value;
+
+        // Clear input field
+        inputField.value = "";
+
+        // Output command in the terminal
+        var output = document.createElement("div");
+        output.classList.add("output");
+        output.innerHTML =
+          "<span style='color: #0003ff;'>bds:\\root$> </span> <span>" +
+          command +
+          "</span>";
+        outputPanel.appendChild(output);
+
+        // // Simulate some output (you can replace this with actual command execution)
+        // let outputMessage = document.createElement("div");
+        // outputMessage.innerText = "Command sent successfully!";
+        // outputMessage.style.color = "yellow";
+        // outputPanel.appendChild(outputMessage);
+
+        if (command.trim() != "" && command != "help"&& command !="cls" && command !="clear") {
+          // Add the command to the command history
+          commandHistory.unshift(command);
+          currentCommandIndex = -1;
+
+          // Send command to server
+          fetch("/terminalCommand", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json", // Specify content type as JSON
+            },
+            body: JSON.stringify({
+              // Convert data to JSON string
+              cmd: command, // Assuming command is a variable containing the command
+            }),
+          })
+            .then((response) => response.text()) // Parse response as JSON
+            .then((data) => {
+              console.log(data); // Log response data
+              let serverResponse = document.createElement("div");
+              serverResponse.innerText = data;
+              serverResponse.style.color = "#1eff00";
+              serverResponse.style.fontFamily =
+                "Segoe UI, Tahoma, Geneva, Verdana, sans-serif";
+              outputPanel.appendChild(serverResponse);
+              // Scroll to bottom of output panel
+              outputPanel.scrollTop = outputPanel.scrollHeight;
+            })
+            .catch((error) => console.error("Error:", error)); // Handle errors
+        } else if (command == "help") {
+          const helpList = [
+            "Enter 'x' to show all file names in the SD card.",
+            "Enter 'd' to delete all files in the SD card.",
+            "Enter 'esc' to escape the group name mode.",
+            "Enter 'b' to check the battery level.",
+            "Enter 'd /fileName.csv' to delete a specific file from the SD card.",
+            "Enter 's' to start the counter.",
+            "Enter 'i' to interrupt the counter in hardware.",
+            "Enter 'r /filename.csv' to display a file's data.",
+            "press 'up arrow' to see previous command entered",
+            "press 'down arrow' to see the next command entered"
+          ];
+
+          let serverResponse = document.createElement("div");
+          serverResponse.style.color = "#1eff00";
+          serverResponse.style.fontFamily =
+            "Segoe UI, Tahoma, Geneva, Verdana, sans-serif";
+          // Iterate through each item in the helpList array
+          helpList.forEach(function (item) {
+            // Create a new <div> element for each item
+            let itemElement = document.createElement("div");
+            // Set the text content of the <div> element to the current item
+            itemElement.innerText = item;
+            // Append the <div> element to the serverResponse
+            serverResponse.appendChild(itemElement);
+          });
+          outputPanel.appendChild(serverResponse);
+        }
+
+        else if(command == "cls" || command== "clear"){
+          clearCommand();
+        }
+
+        // Scroll to bottom of output panel
+        outputPanel.scrollTop = outputPanel.scrollHeight;
+      }
+
+      function clearCommand() {
+        var outputPanel = (document.getElementById("outputPanel").innerText =
+          "");
+      }
+    </script>
+  </body>
+</html>
